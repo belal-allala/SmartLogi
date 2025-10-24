@@ -13,14 +13,17 @@ import java.util.Optional;
 
 public class ColisService {
 
-    private final ColisRepository colisRepository;
-    private final LivreurRepository livreurRepository;
-
     @Autowired
-    public ColisService(ColisRepository colisRepository, LivreurRepository livreurRepository) {
-        this.colisRepository = colisRepository;
+    private ColisRepository colisRepository;
+
+    private LivreurRepository livreurRepository;
+
+    public void setLivreurRepository(LivreurRepository livreurRepository) {
         this.livreurRepository = livreurRepository;
     }
+
+    // Le constructeur par défaut est nécessaire pour que Spring puisse instancier la classe.
+    public ColisService() {}
 
     public Colis saveColis(Colis colis) {
         return colisRepository.save(colis);

@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Optional;
 
-// L'annotation @Service est supprimée car le bean est déclaré dans applicationContext.xml
 public class LivreurService {
 
     private final LivreurRepository livreurRepository;
 
-    // @Autowired est conservé pour l'injection par constructeur
-    @Autowired
+
     public LivreurService(LivreurRepository livreurRepository) {
         this.livreurRepository = livreurRepository;
     }

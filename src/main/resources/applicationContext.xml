@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/data/jpa
                            https://www.springframework.org/schema/data/jpa/spring-jpa.xsd
                            http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+                           http://www.springframework.org/schema/tx/spring-tx.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:annotation-config/>
+    <context:annotation-config />
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- Configuration des repositories via le namespace Spring Data JPA -->
     <jpa:repositories base-package="SmartDeliveryManagementSystem.repository" />
 
-    <!-- Déclaration explicite des beans de service -->
-    <bean id="livreurService" class="SmartDeliveryManagementSystem.service.LivreurService"/>
-    <bean id="colisService" class="SmartDeliveryManagementSystem.service.ColisService"/>
+    <bean id="livreurService" class="SmartDeliveryManagementSystem.service.LivreurService">
+        <constructor-arg ref="livreurRepository"/>
+    </bean>
 
-    <!-- Configuration de la base de données -->
+    <bean id="colisService" class="SmartDeliveryManagementSystem.service.ColisService">
+        <property name="livreurRepository" ref="livreurRepository"/>
+    </bean>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/smart_delivery"/>
