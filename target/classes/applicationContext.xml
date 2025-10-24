@@ -21,6 +21,7 @@
     <bean id="livreurService" class="SmartDeliveryManagementSystem.service.LivreurService">
         <constructor-arg ref="livreurRepository"/>
     </bean>
+
     <bean id="colisService" class="SmartDeliveryManagementSystem.service.ColisService">
         <property name="livreurRepository" ref="livreurRepository"/>
     </bean>
