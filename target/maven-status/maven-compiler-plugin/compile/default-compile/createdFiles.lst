@@ -1,0 +1,8 @@
+SmartDeliveryManagementSystem\repository\LivreurRepository.class
+SmartDeliveryManagementSystem\service\ColisService.class
+SmartDeliveryManagementSystem\entity\Colis.class
+SmartDeliveryManagementSystem\Main.class
+SmartDeliveryManagementSystem\entity\Statut.class
+SmartDeliveryManagementSystem\repository\ColisRepository.class
+SmartDeliveryManagementSystem\entity\Livreur.class
+SmartDeliveryManagementSystem\service\LivreurService.class
