@@ -16,7 +16,7 @@
     <context:annotation-config/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- Configuration des repositories via le namespace Spring Data JPA (méthode robuste) -->
+    <!-- Configuration des repositories via le namespace Spring Data JPA -->
     <jpa:repositories base-package="SmartDeliveryManagementSystem.repository" />
 
     <!-- Déclaration explicite des beans de service -->
@@ -48,21 +48,6 @@
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-
-    <mvc:annotation-driven/>
-
-    <!-- Configuration JSON avec Jackson -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="jsonMessageConverter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="jsonMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     </bean>
 
 </beans>

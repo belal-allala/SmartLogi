@@ -16,7 +16,7 @@
     <context:annotation-config/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- Configuration des repositories via le namespace Spring Data JPA (méthode robuste) -->
+    <!-- Configuration des repositories via le namespace Spring Data JPA -->
     <jpa:repositories base-package="SmartDeliveryManagementSystem.repository" />
 
     <!-- Déclaration explicite des beans de service -->
